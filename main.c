@@ -129,7 +129,6 @@ int main(void)
   int count = 0;
    while (1)
    {
-	   getKeyInput1();
 	   if(button_flag1 == 1)
 	  	   {
 	  		   count = count +1;
@@ -147,8 +146,6 @@ int main(void)
 		   updateled();
 		   break;
 	   case 1:
-		   getKeyInput2();
-		   getKeyInput3();
 		   if(count_red == 1)
 		   {
 	              toggle1(1);
@@ -178,8 +175,6 @@ int main(void)
 	       break;
 
 	   case 2:
-		   getKeyInput2();
-		   getKeyInput3();
 		   if(count_yellow == 1)
 		   {
 		  	    toggle1(2);
@@ -208,8 +203,6 @@ int main(void)
 			count22 = 0;
 	       break;
 	   case 3:
-	   		   getKeyInput2();
-	   		   getKeyInput3();
 	   		   if(count_green == 1)
 	   		   {
 	   		  	    toggle1(3);
@@ -312,7 +305,7 @@ static void MX_TIM2_Init(void)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 7999;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 9;
+  htim2.Init.Period = 10;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -397,6 +390,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	timer_run();
 	timer_run2();
 	timer_run3();
+	getKeyInput1();
+	getKeyInput2();
+	getKeyInput3();
+
+
 }
 /* USER CODE END 4 */
 
@@ -433,3 +431,4 @@ void assert_failed(uint8_t *file, uint32_t line)
 #endif /* USE_FULL_ASSERT */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
